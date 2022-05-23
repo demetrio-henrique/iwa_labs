@@ -1,7 +1,6 @@
 const http = require("http"),
       logger = require("morgan"),
-      expres
-      s = require("express"),
+      express = require("express"),
       bodyParser = require ("body-parser"),
       mongoose = require ("mongoose");
 
