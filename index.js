@@ -13,9 +13,9 @@ const http = require("http"),
       
       (async function getNames(){
         try{
-            const {data} = await axios.get("https://jsonplaceholder.typicode.com/users");
+          const {data} = await axios.get ("https://jsonplaceholder.typicode.com/users");
             users = data.map(user=>user.name)
-
+            
         }catch(error){
             console.log(error)
         }
