@@ -1,22 +1,18 @@
 const http = require("http"),
-      axios = require("axios");
+      logger = require("morgan"),
+      express = require("express"),
+      bodyParser = require ("body-parser"),
+      mongoose = require ("mongoose");
 
-      //creating a server
+let app = express();
+let port = 8000;
 
-      http.createServer((req, res)=>{
-        res.write(users.join(", "));
-        res.end()
+app.use(require('./router'));
+app.use(bodyParser.json());
+app.use(logger("tiny"));
 
-      }).listen(8000);
-      
-      let users = [];
-      
-      (async function getNames(){
-        try{
-          const {data} = await axios.get ("https://jsonplaceholder.typicode.com/users");
-            users = data.map(user=>user.name)
-            
-        }catch(error){
-            console.log(error)
-        }
-        })()
+app.listen(port, function(err){
+console.log("Listening on port: " +port)
+
+});
+    
