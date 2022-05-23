@@ -1,11 +1,9 @@
 const express = require("express"),
-      router = express.Router();
+      router = express.Router(),
+      itemController = require("./item-controller"); //importing the item controller class.
 
-      router.get("/:foo/:bar", (req,res)=>{
-        res.json({message: "Hello World!",
-    data: [
-        req.params.foo,
-        req.params.bar
-    ]});
-      });
+
+      
+      router.get("/:foo/:bar", itemController.helloWorld); //accessing the router handling functions to show the function from itemcontroller class.
+        
       module.exports = router;
