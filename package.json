@@ -20,6 +20,7 @@
   "homepage": "https://github.com/demetrio-henrique/iwa_labs#readme",
   "dependencies": {
     "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
     "mongoose": "^6.3.4",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.16"
