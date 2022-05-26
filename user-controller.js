@@ -7,11 +7,11 @@ exports.createUser = function (req,res){
         if(err){
             res.status(400).json(err); //if it fail, then we show the error
         }
-        res.json(user); // if everything is fina, it create a new user.
+        res.json(user); // if everything is fine, it create a new user.
     });
     };
     exports.getUsers = function(req,res){
-        User.find({}, function(err,users){ //im not sure if User is defined properly
+        User.find({}, function(err,users){ //Its is going to find all the users recorded in mongodb
             if (err){
                 res.status(400).json(err);
             }

@@ -7,21 +7,21 @@ const http = require("http"),
 let app = express();
 let port = 8000;
 
+app.use(bodyParser.json()); //it should be at first
+
 app.use(require('./router'));
-app.use(bodyParser.json());
-app.use(logger("tiny"));
 
-mongoose.connect('mongodb://localhost/test'); //connecting via localhost with a database called test.
+app.use(logger("tiny")); 
 
-mongoose.connection.on('error', (err) => {
-console.log('Mongodb Error: ', err);
-process.exit();
+//modifying
+//mongoose.connect('mongodb://localhost/test'); //connecting via localhost with a database called test.
+const dbURI = "mongodb://localhost/test";
 
-});
-mongoose.connection.on('connected', () =>{
-  console.log('Mongodb is successfully connected');
 
-});
+mongoose.connect (dbURI, {useNewUrlParser:true,
+useUnifiedTopology: true})
+.then((result)=> console.log('connected to db'))
+.catch((err) => console.log(err));
 
 app.listen(port, function(err){
     console.log("Listening on port: " +port)
