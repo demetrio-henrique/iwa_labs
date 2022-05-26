@@ -8,10 +8,10 @@ let app = express();
 let port = 8000;
 
 app.use(bodyParser.json()); //it should be at first
-
+app.use(logger("tiny")); 
 app.use(require('./router'));
 
-app.use(logger("tiny")); 
+
 
 //modifying
 //mongoose.connect('mongodb://localhost/test'); //connecting via localhost with a database called test.
